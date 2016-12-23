@@ -38,6 +38,11 @@ namespace L03
             base.ViewDidLoad();
             this.Title = "Orz";
 
+            GoTwoButton.TouchUpInside += (sender, e) =>
+            {
+                var controller = Storyboard.InstantiateViewController("Test") as TwoViewController;
+                NavigationController.PushViewController(controller, true);
+            };
             //lab:使用程式碼的方式按下Two By Code讓Root轉換至Two
         }
 

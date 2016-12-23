@@ -54,6 +54,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="278"/>
+                    <connections>
+                        <outlet property="GoTwoButton" destination="249" id="name-outlet-249"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +115,7 @@
         <!--Two View Controller-->
         <scene sceneID="240">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="241" customClass="TwoViewController" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="241" customClass="TwoViewController" sceneMemberID="viewController" storyboardIdentifier="Test">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="238"/>
                         <viewControllerLayoutGuide type="bottom" id="239"/>
