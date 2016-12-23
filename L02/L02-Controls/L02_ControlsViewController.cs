@@ -1,6 +1,5 @@
 using System;
 using CoreGraphics;
-
 using Foundation;
 using UIKit;
 using System.Threading.Tasks;
@@ -18,7 +17,6 @@ namespace L02_Controls
         {
             // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning();
-
             // Release any cached data, images, etc that aren't in use.
         }
 
@@ -55,42 +53,40 @@ namespace L02_Controls
 
             var img = new UIImageView(new CGRect(0, 0, 200, 200));
             img.Image = UIImage.FromBundle("flower.jpg");
+            
 
             this.seg.ValueChanged += (sender, e) =>
-          {
-              this.lblText.Text = "選擇了" + this.seg.TitleAt(seg.SelectedSegment);
-              slider.RemoveFromSuperview();
-              mySwitch.RemoveFromSuperview();
-              progress.RemoveFromSuperview();
-              img.RemoveFromSuperview();
-              flag = false;
-              switch (seg.SelectedSegment)
-              {
-                  case 0:
-                      MyView.AddSubview(slider);
-                      break;
-                  case 1:
-                      MyView.AddSubview(mySwitch);
-                      break;
-                  case 2:
-                      flag = true;
-                      progress.Progress = 0;
-                      MyView.AddSubview(progress);
-                      ChangeProgress(progress);
-                      break;
-                  case 3:
-                      MyView.AddSubview(img);
-                      break;
-                      
-              }
-
-          };
+            {
+                this.lblText.Text = "選擇了" + this.seg.TitleAt(seg.SelectedSegment);
+                slider.RemoveFromSuperview();
+                mySwitch.RemoveFromSuperview();
+                progress.RemoveFromSuperview();
+                img.RemoveFromSuperview();
+                flag = false;
+                switch (seg.SelectedSegment)
+                {
+                    case 0:
+                        MyView.AddSubview(slider);
+                        break;
+                    case 1:
+                        MyView.AddSubview(mySwitch);
+                        break;
+                    case 2:
+                        flag = true;
+                        progress.Progress = 0;
+                        MyView.AddSubview(progress);
+                        ChangeProgress(progress);
+                        break;
+                    case 3:
+                        MyView.AddSubview(img);
+                        break;                     
+                }
+            };
 
         }
         bool flag;
         private async void ChangeProgress(UIProgressView progress)
-        {
-            
+        {            
             for (int i = 0; i < 10; i++)
             {
                 if (!flag)
@@ -100,8 +96,6 @@ namespace L02_Controls
                 lblText.Text = string.Format("Progress數值為{0} %", (progress.Progress * 100).ToString());
             }
         }
-
-
 
         public override void ViewWillAppear(bool animated)
         {
@@ -125,19 +119,9 @@ namespace L02_Controls
 
         #endregion
 
-
-
-
-
-
-
         partial void UIButton41_TouchUpInside(UIButton sender)
         {
             this.lblText.Text = "按下了" + sender.TitleLabel.Text;
         }
-
-
-
-
     }
 }

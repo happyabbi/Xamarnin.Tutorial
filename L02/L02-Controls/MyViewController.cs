@@ -25,7 +25,7 @@ namespace L02_Controls
         {
             UIAlertView alert =
                 new UIAlertView("選擇時間",
-                    DateTime.SpecifyKind(this.datePick.Date, DateTimeKind.Unspecified).ToString("yyyy/MM/dd"),
+                    DateTime.SpecifyKind(DateTime.Parse(datePick.Date.ToString()), DateTimeKind.Unspecified).ToString("yyyy/MM/dd"),
                      null, "確定", null);
             alert.Show();
         }

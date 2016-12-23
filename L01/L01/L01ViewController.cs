@@ -60,13 +60,12 @@ namespace L01
         }
 
 
+ 
 
-
-		partial void UIButton28_TouchUpInside (UIButton sender)
-		{
-			//TestViewController test = new TestViewController();
-			//this.PresentViewController(test, true, null);
-		}
+        partial void MyButton_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }
