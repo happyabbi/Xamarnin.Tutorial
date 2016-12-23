@@ -21,5 +21,10 @@ namespace App1
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
+
+        partial void MyButton_TouchUpInside(UIButton sender)
+        {
+            MyButton.SetTitle("Clicked", UIControlState.Normal);
+        }
     }
 }
