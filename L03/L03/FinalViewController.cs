@@ -14,6 +14,7 @@ namespace L03
         partial void UIButton1330_TouchUpInside(UIButton sender)
         {
             //lab:讓view回上一頁PopViewControllerAnimated()
+            NavigationController.PopViewController(true);
 
         }
 
@@ -21,7 +22,7 @@ namespace L03
         {
             //lab:讓view回Root PopToRootViewController()
 
-
+            NavigationController.PopToRootViewController(true);
         }
 	}
 }

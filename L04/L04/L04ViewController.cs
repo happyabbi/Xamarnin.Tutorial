@@ -50,7 +50,7 @@ namespace L04
     //lab:實作Row被選擇時的方法-RowSelected
     //lab:用List<GroupData> 實作群組
 
-    public class MySource 
+    public class MySource : UITableViewSource
     {
         //Cell用的ID
         private string _cellID = "cellid";
@@ -61,8 +61,25 @@ namespace L04
         //群組資料
         public List<GroupData> Datas { get; set; }
 
-        
-       
+        public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+        {
+            var cell = tableView.DequeueReusableCell(_cellID);
+            if(cell == null)
+            {
+                cell = new UITableViewCell(UITableViewCellStyle.Default, _cellID);
+            }
+            cell.TextLabel.Text = Items[indexPath.Row];
+            cell.Accessory = UITableViewCellAccessory.Checkmark;
+            return cell;
+        }
+
+        public override nint RowsInSection(UITableView tableView, nint section)
+        {
+            return Items.Count;
+        }
+
+
+
 
         //lab:AccessoryButtonTapped    
         // new UIAlertView("Accessory", Items[indexPath.Row], null, "OK", null).Show();
