@@ -26,6 +26,8 @@ namespace L02_Controls
         {
             base.ViewDidLoad();
 
+         
+
             this.btnClick.TouchUpInside += (sender, e) =>
             {
                 this.lblText.Text = "輸入了" + txtField.Text;
