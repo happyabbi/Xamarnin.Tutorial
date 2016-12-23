@@ -11,18 +11,18 @@ using UIKit;
 
 namespace App1
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("MyViewController")]
+    partial class MyViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton MyButton { get; set; }
+        UIKit.UIButton MyButton2 { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (MyButton != null) {
-                MyButton.Dispose ();
-                MyButton = null;
+            if (MyButton2 != null) {
+                MyButton2.Dispose ();
+                MyButton2 = null;
             }
         }
     }
