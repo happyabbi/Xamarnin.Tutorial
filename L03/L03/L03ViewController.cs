@@ -31,6 +31,21 @@ namespace L03
             // Release any cached data, images, etc that aren't in use.
         }
 
+
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            base.PrepareForSegue(segue, sender);
+
+            if (segue.Identifier == "GoOne")
+            {
+                ((OneViewController)segue.DestinationViewController).Value = "GoOne";
+            }else if(segue.Identifier == "GoTwo")
+            {
+                ((TwoViewController)segue.DestinationViewController).Value = "GoTwo";
+            }
+
+        }
+
         #region View lifecycle
 
         public override void ViewDidLoad()
@@ -41,6 +56,7 @@ namespace L03
             GoTwoButton.TouchUpInside += (sender, e) =>
             {
                 var controller = Storyboard.InstantiateViewController("Test") as TwoViewController;
+                controller.Value = "ABCDEF";
                 NavigationController.PushViewController(controller, true);
             };
             //lab:使用程式碼的方式按下Two By Code讓Root轉換至Two
