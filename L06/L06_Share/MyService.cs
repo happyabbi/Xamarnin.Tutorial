@@ -28,7 +28,9 @@ namespace L06_Share
 
 
             //lab:建立SQLiteConnection連線與建立Table
-           
+            _conn = new SQLiteConnection(dbPath);
+            _conn.CreateTable<Info>();
+
             if (_conn.Table<Info>().Count() == 0)
             {
                 List<Info> items = new List<Info>();
@@ -42,7 +44,7 @@ namespace L06_Share
                 items.Add(new Info() { Age = "53", Name = "Toyota" });
                 items.Add(new Info() { Age = "122", Name = "BMW" });
                 items.Add(new Info() { Age = "12", Name = "Zent" });
-
+                _conn.InsertAll(items);
                 //lab:新增初始化資料到Table
             }
         }
@@ -53,6 +55,11 @@ namespace L06_Share
             if (Name == string.Empty)
                 return this.QueryAll();
 
+            var query = from item in _conn.Table<Info>()
+                        where item.Name.Contains(Name)
+                        select item;
+            return query.ToList();
+                
             //lab:撰寫Query Name
 
         }
@@ -64,6 +71,7 @@ namespace L06_Share
 
         public List<Info> QueryAll()
         {
+           return _conn.Table<Info>().ToList();
             //lab:撰寫select *
         }
 

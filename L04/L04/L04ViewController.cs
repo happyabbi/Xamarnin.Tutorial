@@ -67,15 +67,39 @@ namespace L04
             if(cell == null)
             {
                 cell = new UITableViewCell(UITableViewCellStyle.Default, _cellID);
+                cell.Accessory = UITableViewCellAccessory.DetailButton;
             }
-            cell.TextLabel.Text = Items[indexPath.Row];
-            cell.Accessory = UITableViewCellAccessory.Checkmark;
+            cell.TextLabel.Text = Datas[indexPath.Section].Name[indexPath.Row];
+            
             return cell;
         }
 
         public override nint RowsInSection(UITableView tableView, nint section)
         {
-            return Items.Count;
+
+            return Datas[(int)section].Name.Count;
+        }
+
+        public override nint NumberOfSections(UITableView tableView)
+        {
+            return Datas.Count;
+        }
+
+        public override string TitleForHeader(UITableView tableView, nint section)
+        {
+            return Datas[(int)section].Type;
+        }
+
+
+        public override void AccessoryButtonTapped(UITableView tableView, NSIndexPath indexPath)
+        {
+           
+            new UIAlertView("Accessory", Datas[indexPath.Section].Name[indexPath.Row], null, "OK", null).Show();
+        }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            new UIAlertView("RowSelected", Datas[indexPath.Section].Name[indexPath.Row], null, "OK", null).Show();
         }
 
 
@@ -85,12 +109,25 @@ namespace L04
         // new UIAlertView("Accessory", Items[indexPath.Row], null, "OK", null).Show();
 
 
+        public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
+        {
+            Datas[indexPath.Section].Name.RemoveAt(indexPath.Row);
+            tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
+        }
 
         //lab:CommitEditingStyle
         //Items.RemoveAt(indexPath.Row);
         // tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
 
+        public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
+        {
+            return true;
+        }
 
+        public override string TitleForDeleteConfirmation(UITableView tableView, NSIndexPath indexPath)
+        {
+            return "Delete";
+        }
 
 
         //lab:RowSelected

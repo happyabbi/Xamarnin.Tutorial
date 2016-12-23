@@ -33,16 +33,26 @@ namespace L05
 
     }
 
-    public class MySource 
+    public class MySource :UITableViewSource
     {
         public List<Data> Items { get; set; }
 
+        public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+        {
+            if(indexPath.Row == 0)
+            {
 
-   
+            }
+        }
 
         public override float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
         {
             return 180;
+        }
+
+        public override nint RowsInSection(UITableView tableview, nint section)
+        {
+            throw new NotImplementedException();
         }
     }
 

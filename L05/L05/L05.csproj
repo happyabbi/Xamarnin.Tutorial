@@ -77,6 +77,10 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Info.plist" />
+    <Compile Include="MyTableViewCell.cs" />
+    <Compile Include="MyTableViewCell.designer.cs">
+      <DependentUpon>MyTableViewCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

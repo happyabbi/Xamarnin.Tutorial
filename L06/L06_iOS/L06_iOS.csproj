@@ -74,6 +74,9 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\L06_Share\MyService.cs">
+      <Link>MyService.cs</Link>
+    </Compile>
     <Compile Include="AddViewController.cs" />
     <Compile Include="AddViewController.designer.cs">
       <DependentUpon>AddViewController.cs</DependentUpon>

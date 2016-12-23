@@ -28,12 +28,16 @@ namespace L06
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
             //lab:使用Share File所設計的使用MyService來操作Sqlite，呼叫其QueryAll方法查詢資料展示在TableView
+            Console.WriteLine(path);
+            myService = new MyService(path);
+            myTableViewSource = new MyTableViewSource() { Items = myService.QueryAll() };
         }
 
 
 
         partial void btnQuery_TouchUpInside(UIButton sender)
         {
+            myTableViewSource.Items = myService.Query(lblName.Text);
             //lab:使用MyService，呼叫其Query方法查詢資料展示在TableView
         }
     }
